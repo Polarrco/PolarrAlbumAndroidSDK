@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion '26.0.2'
+    splits {
+        abi {
+            enable true
+            include 'armeabi-v7a'
+            universalApk false
+        }
+    }
+
+    defaultConfig {
+        applicationId "co.polarr.albumsdkdemo"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 21
+        versionName "1.1.10"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('album.jks')
+            storePassword 'polarr'
+            keyAlias 'polarr'
+            keyPassword 'polarr'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile 'com.obsez.android.lib.filechooser:filechooser:1.1.5'
+
+    compile(name: 'processing-dev-release', ext: 'aar')
+    compile(name: 'dlib-release', ext: 'aar')
+    compile(name: 'prob_det-release', ext: 'aar')
+}

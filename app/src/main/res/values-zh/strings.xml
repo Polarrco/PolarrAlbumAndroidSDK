@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">泼辣图片优选SDK</string>
+    <string name="grouping">图片故事</string>
+    <string name="group_faces">人物封面</string>
+    <string name="burst_mode">连拍归档</string>
+    <string name="rating_sample">评分示例</string>
+    <string name="group_sample">优选示例</string>
+    <string name="rating">图片评分</string>
+    <string name="group_result">查看结果</string>
+    <string name="max_processing">最大处理数量：</string>
+    <string name="stop">停止</string>
+    <string name="result_count">分组结果范围：</string>
+    <string name="result_count_to">到</string>
+    <string name="exportCsv">导出表格</string>
+    <string name="sensitivity">敏感度</string>
+</resources>

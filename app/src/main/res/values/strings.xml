@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PolarrAlbumAndroidSDK</string>
+    <string name="grouping">Grouping</string>
+    <string name="group_faces">Faces</string>
+    <string name="burst_mode">Burst</string>
+    <string name="rating_sample">Rating Sample</string>
+    <string name="group_sample">Grouping Samples</string>
+    <string name="rating">Rating</string>
+    <string name="group_result">Grouping result</string>
+    <string name="max_processing">Max Grouping Count:</string>
+    <string name="stop">Stop</string>
+    <string name="result_count">Grouped Count range: from</string>
+    <string name="result_count_to">to</string>
+    <string name="exportCsv">Export</string>
+    <string name="sensitivity">Sensitivity</string>
+</resources>
