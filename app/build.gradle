@@ -55,5 +55,5 @@ dependencies {
 
     compile(name: 'processing-dev-release', ext: 'aar')
     compile(name: 'dlib-release', ext: 'aar')
-    compile(name: 'prob_det-release', ext: 'aar')
+    compile(name: 'prob_det-dev-release', ext: 'aar')
 }
