@@ -34,7 +34,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -360,7 +359,27 @@ public class MainActivity extends AppCompatActivity {
                 BenchmarkUtil.TimeStart("processingFile");
                 BenchmarkUtil.MemStart("processingFile");
                 final Map<String, Object> result = Processing.processingFile(MainActivity.this, file.getPath(), false);
+
                 BenchmarkUtil.MemEnd("processingFile");
+
+                if (result.containsKey("metric_emotion")) {
+                    float emotion = (float) result.get("metric_emotion");
+                    if (emotion <= 0) {
+                        final Bitmap faceBm = ImageUtil.decodeThumbBitmapForFile(file.getPath(), 800, 800);
+                        Map<String, Object> faceResult = Processing.faceDetection(MainActivity.this, faceBm);
+                        if (faceResult.containsKey("metric_emotion")) {
+                            emotion = (float) faceResult.get("metric_emotion");
+                            if (emotion > 0) {
+                                float total = (float) result.get("rating_all");
+                                total += emotion / 2;
+                                result.put("rating_all", total);
+                            }
+                        }
+                        result.putAll(faceResult);
+                        faceBm.recycle();
+                    }
+                }
+                result.remove("metric_faces");
 
 //                // TODO add senstime interface here
 //                List<List<PointF>> facePoints = new ArrayList<>();
@@ -373,7 +392,6 @@ public class MainActivity extends AppCompatActivity {
                     if (label.startsWith("metric_")) {
                         String showLable = label.substring("metric_".length());
                         output("\t" + showLable + ": " + result.get(label));
-
                     }
                 }
 
@@ -644,6 +662,26 @@ public class MainActivity extends AppCompatActivity {
 //                        List<List<PointF>> facePoints = new ArrayList<>();
 //                        List<Rect> faceRects = new ArrayList<>();
 //                        Processing.computeEmotion(featureResult, facePoints, faceRects);
+
+                        if (!isBurst) {
+                            if (featureResult.containsKey("metric_emotion")) {
+                                float emotion = (float) featureResult.get("metric_emotion");
+                                if (emotion <= 0) {
+                                    final Bitmap faceBm = ImageUtil.decodeThumbBitmapForFile(photo.getPath(), 800, 800);
+                                    Map<String, Object> faceResult = Processing.faceDetection(MainActivity.this, faceBm);
+                                    if (faceResult.containsKey("metric_emotion")) {
+                                        emotion = (float) faceResult.get("metric_emotion");
+                                        if (emotion > 0) {
+                                            float rating_all = (float) featureResult.get("rating_all");
+                                            rating_all += emotion / 2;
+                                            featureResult.put("rating_all", rating_all);
+                                        }
+                                    }
+                                    featureResult.putAll(faceResult);
+                                    faceBm.recycle();
+                                }
+                            }
+                        }
 
                         if (!isFaces && !isBurst) {
                             bitmap = ImageUtil.getScaledBitmap(photo.getPath(), 224, 224);
