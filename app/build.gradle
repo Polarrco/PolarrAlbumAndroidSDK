@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '26.0.2'
+    buildToolsVersion "28.0.0"
     splits {
         abi {
             enable true
@@ -46,14 +46,14 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:design:24.2.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:24.2.1'
+    implementation 'com.android.support:design:24.2.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile 'com.obsez.android.lib.filechooser:filechooser:1.1.5'
+    implementation 'com.obsez.android.lib.filechooser:filechooser:1.1.5'
 
-    compile(name: 'processing-dev-release', ext: 'aar')
-    compile(name: 'dlib-release', ext: 'aar')
-    compile(name: 'prob_det-dev-release', ext: 'aar')
+    implementation(name: 'processing-oppo-release', ext: 'aar')
+    implementation(name: 'dlib-release', ext: 'aar')
+    implementation(name: 'prob_det-dev-release', ext: 'aar')
 }
