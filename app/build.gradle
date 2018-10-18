@@ -53,7 +53,7 @@ dependencies {
 
     implementation 'com.obsez.android.lib.filechooser:filechooser:1.1.5'
 
-    implementation(name: 'processing-oppo-release', ext: 'aar')
+    implementation(name: 'processing-dev-release', ext: 'aar')
     implementation(name: 'dlib-release', ext: 'aar')
     implementation(name: 'prob_det-dev-release', ext: 'aar')
 }
