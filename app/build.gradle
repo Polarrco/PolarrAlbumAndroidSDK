@@ -15,8 +15,8 @@ android {
         applicationId "co.polarr.albumsdkdemo"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 22
-        versionName "1.1.11"
+        versionCode 23
+        versionName "1.1.12"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
