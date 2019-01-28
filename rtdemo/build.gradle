@@ -19,14 +19,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.0"
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "co.polarr.demo.rtfeature"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
     }
 
     signingConfigs {
@@ -54,7 +54,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:appcompat-v7:28.0.0'
 
     // photo score
     compile(name: 'processing-release', ext: 'aar')
