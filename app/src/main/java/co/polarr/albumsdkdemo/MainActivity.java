@@ -395,16 +395,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                thumbnailView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showResult(result, file.getName());
-                    }
-                });
-
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        thumbnailView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                showResult(result, file.getName());
+                            }
+                        });
+
                         showResult(result, file.getName());
                     }
                 });
