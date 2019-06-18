@@ -3,20 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
-    splits {
-        abi {
-            enable true
-            include 'armeabi-v7a'
-            universalApk false
-        }
-    }
 
     defaultConfig {
         applicationId "co.polarr.albumsdkdemo"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 23
-        versionName "1.1.13"
+        versionName "1.1.14"
     }
     signingConfigs {
         release {
@@ -31,6 +24,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            ndk {
+                abiFilters "arm64-v8a" // 32bit: armeabi-v7a 64bit: arm64-v8a
+            }
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "polarr_album_v${defaultConfig.versionName}.apk"
+                }
+            }
         }
         debug {
             signingConfig signingConfigs.release
