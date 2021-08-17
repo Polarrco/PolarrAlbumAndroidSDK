@@ -20,7 +20,9 @@ The SDK performs image classification and produce the top 3 most likely labels f
 
 
 ### Grouping photos
+
 Similar photos are grouped together based on their subjects, features, colors, and other metrics.
+
 <img src="https://user-images.githubusercontent.com/5923363/32823142-81f5a192-c9a1-11e7-9c72-89a113aaaa62.png" width="250">
 
 ## Add dependencies to Gradle
