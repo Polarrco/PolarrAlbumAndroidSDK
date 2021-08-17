@@ -13,10 +13,10 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BenchmarkUtil.init(this);
         setContentView(R.layout.activity_main);
 
         outputView = (TextView) findViewById(R.id.tf_output);
@@ -376,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                         result.putAll(faceResult);
-                        faceBm.recycle();
+//                        faceBm.recycle();
                     }
                 }
                 result.remove("metric_faces");
@@ -655,8 +656,9 @@ public class MainActivity extends AppCompatActivity {
 
                         long fileCreateTime = ImageUtil.getPhotoCreationTime(photo);
 
-
+                        BenchmarkUtil.TimeStart("processingFile");
                         final Map<String, Object> featureResult = Processing.processingFile(MainActivity.this, bitmap, fileCreateTime, !isFaces && isBurst);
+                        BenchmarkUtil.TimeEnd("processingFile");
 
                         // TODO add senstime interface here
 //                        List<List<PointF>> facePoints = new ArrayList<>();
@@ -668,7 +670,9 @@ public class MainActivity extends AppCompatActivity {
                                 float emotion = (float) featureResult.get("metric_emotion");
                                 if (emotion <= 0) {
                                     final Bitmap faceBm = ImageUtil.decodeThumbBitmapForFile(photo.getPath(), 800, 800);
+                                    BenchmarkUtil.TimeStart("faceDetection");
                                     Map<String, Object> faceResult = Processing.faceDetection(MainActivity.this, faceBm);
+                                    BenchmarkUtil.TimeEnd("faceDetection");
                                     if (faceResult.containsKey("metric_emotion")) {
                                         emotion = (float) faceResult.get("metric_emotion");
                                         if (emotion > 0) {
@@ -678,15 +682,17 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }
                                     featureResult.putAll(faceResult);
-                                    faceBm.recycle();
+//                                    faceBm.recycle();
                                 }
                             }
                         }
 
                         if (!isFaces && !isBurst) {
                             bitmap = ImageUtil.getScaledBitmap(photo.getPath(), 224, 224);
+                            BenchmarkUtil.TimeStart("tagPhoto");
                             Map<String, Object> taggingResult = TaggingUtil.tagPhoto(getAssets(), bitmap);
-                            bitmap.recycle();
+                            BenchmarkUtil.TimeEnd("tagPhoto");
+//                            bitmap.recycle();
                             featureResult.putAll(taggingResult);
                         }
 
@@ -721,7 +727,9 @@ public class MainActivity extends AppCompatActivity {
                     GroupingResultItem result = null;
                     try {
                         if (isFaces) {
+                            BenchmarkUtil.TimeStart("processingFaces");
                             result = Processing.processingFaces(features);
+                            BenchmarkUtil.TimeEnd("processingFaces");
                         } else {
 
                             BenchmarkUtil.TimeStart("processingGrouping");

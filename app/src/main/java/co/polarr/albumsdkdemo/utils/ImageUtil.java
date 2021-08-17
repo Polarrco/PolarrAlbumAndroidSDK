@@ -115,7 +115,7 @@ public class ImageUtil {
         Bitmap bitmap = BitmapFactory.decodeFile(imgPath, options);
         Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, destWidth, destHeight, true);
         if (bitmap != scaledBitmap) {
-            bitmap.recycle();
+//            bitmap.recycle();
         }
         bitmap = scaledBitmap;
 
@@ -169,7 +169,7 @@ public class ImageUtil {
         int targetHeight = (int) (bitmap.getHeight() * minScale);
         Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, targetWidth, targetHeight, true);
         if (bitmap != scaledBitmap) {
-            bitmap.recycle();
+//            bitmap.recycle();
         }
 
         return getRotatedImage(scaledBitmap, degree);
@@ -184,7 +184,7 @@ public class ImageUtil {
             m.postRotate(degrees, w / 2, h / 2);
             Bitmap bm = Bitmap.createBitmap(bitmap, 0, 0, w, h, m, true);
             if (bm != bitmap) {
-                bitmap.recycle();
+//                bitmap.recycle();
             }
             bitmap = bm;
         }

@@ -10,7 +10,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.RawRes;
+import androidx.annotation.RawRes;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

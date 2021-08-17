@@ -90,7 +90,7 @@ public class ImageRenderUtil {
 
                     // check if cancel
                     if (isCancel && bitmap != null && !bitmap.isRecycled()) {
-                        bitmap.recycle();
+//                        bitmap.recycle();
                     }
 
                     setRunnable = new Runnable() {
@@ -98,7 +98,7 @@ public class ImageRenderUtil {
                         public void run() {
                             // check if cancel
                             if (isCancel && bitmap != null && !bitmap.isRecycled()) {
-                                bitmap.recycle();
+//                                bitmap.recycle();
                             }
 
                             /** do set image bitmap */
@@ -122,7 +122,7 @@ public class ImageRenderUtil {
                                         if (needRecyle) {
                                             /** recyle bitmap if it detached from screen */
                                             if (bitmap != null && !bitmap.isRecycled()) {
-                                                bitmap.recycle();
+//                                                bitmap.recycle();
                                             }
                                         }
                                     }

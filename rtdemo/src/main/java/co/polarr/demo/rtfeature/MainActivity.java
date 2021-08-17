@@ -13,15 +13,14 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.renderscript.Type;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.Locale;
 
-import co.polarr.processing.OnFeatureCallback;
 import co.polarr.processing.PolarrFeatureProcessor;
 import co.polarr.processing.entities.FeatureItem;
 
@@ -77,7 +76,7 @@ public class MainActivity extends Activity {
                             long start = System.currentTimeMillis();
                             Bitmap scaledBM = getScaledFitBitmap(stitchBmp, 300, 300);
                             final FeatureItem featureResult = processor.featurePhotoSync(scaledBM, width, height);
-                            scaledBM.recycle();
+//                            scaledBM.recycle();
                             featureResult.benchmark = (System.currentTimeMillis() - start);
 
                             runOnUiThread(new Runnable() {
@@ -176,7 +175,7 @@ public class MainActivity extends Activity {
             lastHeight = height;
 
             synchronized (stitchBmp) {
-                stitchBmp.recycle();
+//                stitchBmp.recycle();
             }
 
             stitchBmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -218,7 +217,7 @@ public class MainActivity extends Activity {
         sb.append("colorfulness:");
         sb.append(result.metric_colorfulness);
         sb.append("\n");
-        float emotion = result.metric_emotion;
+        float emotion = result.metric_emotion.a();
         if (emotion > 0) {
             sb.append("emotion:");
             sb.append(emotion);
