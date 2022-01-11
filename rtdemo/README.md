@@ -2,7 +2,7 @@
 The minimum Android API Level is 15 (4.0.3).
 
 ## License
-The SDK included in this repository must not be used for any commercial purposes without the direct written consent of Polarr, Inc. The current version of the SDK expires on December 31, 2019. For pricing and more info regarding the full license SDK, please email [info@polarr.co](mailto:info@polarr.co).
+The SDK included in this repository must not be used for any commercial purposes without the direct written consent of Polarr, Inc. The current version of the SDK expires on December 31, 2022. For pricing and more info regarding the full license SDK, please email [info@polarr.co](mailto:info@polarr.co).
 
 ## Functionalities
 The SDK performs an overall rating value from 1.0 to 5.0 (where 1.0 is the worst and 5.0 is the best), which is based on the following metrics:
