@@ -1,12 +1,12 @@
 # PolarrAlbumAndroidSDK
-Polarr Android SDK for Smart Album (Polarr Album+) - Includes photo auto grouping, tagging, rating and etc. The SDK serves as an arsenal for Android developers to leverage deep learning and machine learning to organize and enhance a set of photos. Polarr currently has an iOS App called [Polarr Album+](https://itunes.apple.com/us/app/polarr-album/id1261219573?mt=8) which showcases all functions of the SDK plus some. This SDK is a subset of the functions provided by Polarr Album+, and is currently noted as an alpha release. In the coming months, more functionalities will be added and feature requests are welcomed.
+Polarr Android SDK for Smart Album - Includes photo auto grouping, tagging, rating and etc. The SDK serves as an arsenal for Android developers to leverage deep learning and machine learning to organize and enhance a set of photos. Polarr currently has an iOS App called [Polarr Album+](mailto:hello@polarr.ai) which showcases all functions of the SDK plus some. Feature requests are welcomed.
 
 This SDK includes a starter project (co.polarr.albumsdkdemo) that calls the Android SDK.
 
 The minimum Android API Level is 15 (4.0.3).
 
 ## License
-The SDK included in this repository must not be used for any commercial purposes without the direct written consent of Polarr, Inc. The current version of the SDK expires on December 31, 2022. For pricing and more info regarding the full license SDK, please email [info@polarr.co](mailto:info@polarr.co).
+The SDK included in this repository must not be used for any commercial purposes without the direct written consent of Polarr, Inc. The current version of the SDK expires on December 31, 2022. For pricing and more info regarding the full license SDK, please email [hello@polarr.ai](mailto:hello@polarr.ai).
 
 ## Functionalities
 ### Tagging a photo
@@ -20,7 +20,9 @@ The SDK performs image classification and produce the top 3 most likely labels f
 
 
 ### Grouping photos
+
 Similar photos are grouped together based on their subjects, features, colors, and other metrics.
+
 <img src="https://user-images.githubusercontent.com/5923363/32823142-81f5a192-c9a1-11e7-9c72-89a113aaaa62.png" width="250">
 
 ## Add dependencies to Gradle
