@@ -6,7 +6,7 @@ This SDK includes a starter project (co.polarr.albumsdkdemo) that calls the Andr
 The minimum Android API Level is 15 (4.0.3).
 
 ## License
-The SDK included in this repository must not be used for any commercial purposes without the direct written consent of Polarr, Inc. The current version of the SDK expires on December 31, 2022. For pricing and more info regarding the full license SDK, please email [hello@polarr.ai](mailto:hello@polarr.ai).
+The SDK included in this repository must not be used for any commercial purposes without the direct written consent of Polarr, Inc. The current version of the SDK expires on December 31, 2024. For pricing and more info regarding the full license SDK, please email [hello@polarr.ai](mailto:hello@polarr.ai).
 
 ## Functionalities
 ### Tagging a photo

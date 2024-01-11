@@ -9,7 +9,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 23
-        versionName "1.1.16"
+        versionName "1.1.17"
     }
     signingConfigs {
         release {
