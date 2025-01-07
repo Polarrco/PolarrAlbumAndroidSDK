@@ -1,4 +1,7 @@
 # PolarrAlbumAndroidSDK
+
+*As of January 2025, the public repo of Polarr Album Android SDK is no longer maintained. If you are interested in commercial licensing of the SDK, please reach out to [info@polarr.co](mailto:info@polarr.co)*.
+
 Polarr Android SDK for Smart Album - Includes photo auto grouping, tagging, rating and etc. The SDK serves as an arsenal for Android developers to leverage deep learning and machine learning to organize and enhance a set of photos. Polarr currently has an iOS App called [Polarr Album+](mailto:hello@polarr.ai) which showcases all functions of the SDK plus some. Feature requests are welcomed.
 
 This SDK includes a starter project (co.polarr.albumsdkdemo) that calls the Android SDK.
